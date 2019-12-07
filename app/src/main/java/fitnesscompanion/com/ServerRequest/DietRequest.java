@@ -69,6 +69,7 @@ public class DietRequest {
                         diet.setQty(jsonObject.getInt("quantity"));
                         diet.setCalories(jsonObject.getInt("calories"));
                         diet.setName(jsonObject.getString("foodName"));
+
                         //diet.setFoodNo(jsonObject.getInt("foodNo"));
                         dietList.add(diet);
                     }

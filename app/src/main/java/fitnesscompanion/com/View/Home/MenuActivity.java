@@ -36,6 +36,7 @@ import fitnesscompanion.com.R;
 import fitnesscompanion.com.Util.BottomNavigationViewHelper;
 import fitnesscompanion.com.View.Activity.ActivityFragment;
 import fitnesscompanion.com.View.Food.FoodFragment;
+import fitnesscompanion.com.View.Food.FoodImage;
 import fitnesscompanion.com.View.Profile.ProfileFragment;
 
 
@@ -103,12 +104,12 @@ public class MenuActivity extends AppCompatActivity implements GoogleApiClient.C
         passwordCompare = preferences.getString(PWD, null);
 
         //connecting with google fit
-       mGoogleApiClient = new GoogleApiClient.Builder(this)
-                .addApi(Fitness.HISTORY_API)
-                .addScope(new Scope(Scopes.FITNESS_ACTIVITY_READ_WRITE))
-                .addConnectionCallbacks(this)
-                .enableAutoManage(this, 0, this)
-                .build();
+//       mGoogleApiClient = new GoogleApiClient.Builder(this)
+//                .addApi(Fitness.HISTORY_API)
+//                .addScope(new Scope(Scopes.FITNESS_ACTIVITY_READ_WRITE))
+//                .addConnectionCallbacks(this)
+//                .enableAutoManage(this, 0, this)
+//                .build();
 
 
         navigation.setSelectedItemId(navigationIndex[getIntent().getIntExtra("index",0)]);
@@ -121,7 +122,7 @@ private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemS
 
         @Override
         public boolean onNavigationItemSelected(MenuItem item) {
-            new GetStep().execute();
+//            new GetStep().execute();
             switch (item.getItemId()) {
                 case R.id.navigation_home:
 
@@ -145,14 +146,14 @@ private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemS
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         switch (index) {
             case 0:
-                new GetStep().execute();
+//                new GetStep().execute();
                 transaction.replace(R.id.frameLayout,new HomeFragment(this)).commit();
                 break;
             case 1:
                 transaction.replace(R.id.frameLayout,new ActivityFragment(this)).commit();
                 break;
             case 2:
-                transaction.replace(R.id.frameLayout,new FoodFragment(this)).commit();
+                transaction.replace(R.id.frameLayout,new FoodImage(this)).commit();
                 break;
             case 3:
                 transaction.replace(R.id.frameLayout,new ProfileFragment(this)).commit();

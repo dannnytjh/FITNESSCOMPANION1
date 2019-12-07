@@ -1,12 +1,17 @@
 package fitnesscompanion.com.Adapter;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -15,6 +20,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import fitnesscompanion.com.Model.Diet;
 import fitnesscompanion.com.R;
+import fitnesscompanion.com.View.Home.NewsActivity;
 
 /**
  * Created by Soon Kok Fung
@@ -26,11 +32,13 @@ public class DietExpandableAdapter extends BaseExpandableListAdapter {
     @BindView(R.id.txtTitle) TextView txtTitle;
     @BindView(R.id.txtCal) TextView txtCal;
     @BindView(R.id.txtQty) TextView txtQty;
-    @BindView(R.id.imageView) ImageView imageView;
+    @BindView(R.id.dietImage) ImageView dietImage;
 
     private ArrayList<String> listDataHeader;
     private HashMap<String, ArrayList<Diet>> listData;
     private Context context;
+    private String tempUri;
+    private Uri myUri;
 
     public DietExpandableAdapter( Context context,ArrayList<String> listDataHeader, HashMap<String, ArrayList<Diet>> listData) {
         this.context = context;
@@ -39,6 +47,7 @@ public class DietExpandableAdapter extends BaseExpandableListAdapter {
         notifyDataSetChanged();
     }
 
+    //parent listview meal type, calories
     @Override
     public View getGroupView(int groupPosition, boolean b, View convertView, ViewGroup viewGroup) {
         LayoutInflater inflater  = (LayoutInflater) context
@@ -59,6 +68,7 @@ public class DietExpandableAdapter extends BaseExpandableListAdapter {
     }
 
     @Override
+    //get childview name, portion, calories
     public View getChildView(int groupPosition, int childPosition, boolean b, View convertView, ViewGroup viewGroup) {
         LayoutInflater inflater  = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -70,9 +80,11 @@ public class DietExpandableAdapter extends BaseExpandableListAdapter {
         txtTitle.setText(diet.getName());
         txtQty.setText(String.valueOf(diet.getQty()) + " "+"Portion");
         txtCal.setText(String.valueOf(diet.getCalories())+" cal");
-
-        /*if(diet.getImage().length()!=0)
-            imageView.setImageBitmap(diet.getImageFromJSon());*/
+        if(diet.getImage() != null) {
+            byte[] foodImage = diet.getImage();
+            Bitmap bitmap = BitmapFactory.decodeByteArray(foodImage, 0, foodImage.length);
+            dietImage.setImageBitmap(bitmap);
+        }
 
         return convertView;
     }

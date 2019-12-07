@@ -130,23 +130,23 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         btnGoogleSignIn.setOnClickListener(this);
 
         // Google Sign In == true
-        if (googleSignIn) {
-            GoogleSignIn();
-        }
+//        if (googleSignIn) {
+//            GoogleSignIn();
+//        }
     }
 
-    private void GoogleSignIn() {
-        googleSignIn = false;
-        Scope myScope = new Scope("https://www.googleapis.com/auth/user.birthday.read");
-        Scope myScope2 = new Scope(Scopes.PLUS_ME);
-        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestScopes(myScope, myScope2)
-                .requestEmail()
-                .build();
-        googleApiClient = new GoogleApiClient.Builder(this).enableAutoManage(this, this).
-                addApi(Auth.GOOGLE_SIGN_IN_API, gso)
-                .build();
-    }
+//    private void GoogleSignIn() {
+//        googleSignIn = false;
+//        Scope myScope = new Scope("https://www.googleapis.com/auth/user.birthday.read");
+//        Scope myScope2 = new Scope(Scopes.PLUS_ME);
+//        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+//                .requestScopes(myScope, myScope2)
+//                .requestEmail()
+//                .build();
+//        googleApiClient = new GoogleApiClient.Builder(this).enableAutoManage(this, this).
+//                addApi(Auth.GOOGLE_SIGN_IN_API, gso)
+//                .build();
+//    }
 
     @Override
     public void onClick(View view) {
@@ -244,10 +244,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == REQ_CODE) {
-            GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
-            handleResult(result);
-        }
+//        if (requestCode == REQ_CODE) {
+//            GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
+//            handleResult(result);
+//        }
 
     }
 

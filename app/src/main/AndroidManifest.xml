@@ -11,8 +11,8 @@
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     <uses-permission android:name="com.google.android.gms.permission.ACTIVITY_RECOGNITION" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <uses-feature
         android:name="android.hardware.bluetooth_le"
@@ -24,10 +24,17 @@
         android:label="@string/app_name"
         android:roundIcon="@drawable/logo_drawer"
         android:supportsRtl="true"
-        android:usesCleartextTraffic="true"
-        android:theme="@style/AppTheme">
-
-        <!-- this service and receiver is for the ichoice device -->
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".View.Food.FoodImage"
+            android:label="@string/title_activity_food_image"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".FoodImageFragment"
+            android:label="@string/title_activity_food_image_fragment"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".View.Food.Food" /> <!-- this service and receiver is for the ichoice device -->
         <service android:name="com.choicemmed.a30.BleService" />
         <service
             android:name=".Util.NotificationJobSchedule"
@@ -121,7 +128,6 @@
             android:name=".View.Home.BmiActivity"
             android:parentActivityName=".View.Home.MenuActivity"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".View.Home.AssignedActivity"
             android:parentActivityName=".View.Home.MenuActivity"
@@ -169,27 +175,27 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".View.Home.GoalDetailActivity"
-
             android:screenOrientation="portrait" />
         <activity
             android:name=".View.Home.DisplayGoal"
             android:screenOrientation="portrait" />
-        <activity android:name=".View.Profile.PrivacyActivity"
-            ></activity>
-        <activity android:name=".View.Home.NewsActivity"
-            android:parentActivityName=".View.Home.MenuActivity"/>
-
-        <activity android:name=".View.Home.NewsDetailsActivity"
-            android:parentActivityName=".View.Home.NewsActivity"/>
-
-        <activity android:name=".View.Food.UploadFoodActivity"
-            android:parentActivityName=".View.Home.MenuActivity"
-
-
-        />
-
-
+        <activity android:name=".View.Profile.PrivacyActivity" />
+        <activity
+            android:name=".View.Home.NewsActivity"
+            android:label="News Feed"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".View.Home.NewsDetailsActivity"
+            android:label="News Details"
+            android:parentActivityName=".View.Home.NewsActivity" />
+        <activity
+            android:name=".View.Food.UploadFoodActivity"
+            android:label="Add Food Image"
+            android:parentActivityName=".View.Home.MenuActivity" />
+        <activity
+            android:name=".View.Food.FoodList"
+            android:label="Food List"
+            android:parentActivityName=".View.Food.UploadFoodActivity" />
     </application>
-
 
 </manifest>

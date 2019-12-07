@@ -20,6 +20,7 @@ import java.util.HashMap;
 
 import fitnesscompanion.com.R;
 
+
 public class NewsActivity extends AppCompatActivity {
 
     String API_KEY = "https://newsapi.org/v2/top-headlines?country=my&category=sports&apiKey=d1faf70bce4940579a5c9cd199e10bd5"; // news api from newsapi.org

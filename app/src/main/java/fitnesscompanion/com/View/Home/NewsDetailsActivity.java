@@ -11,7 +11,8 @@ import android.widget.ProgressBar;
 import fitnesscompanion.com.R;
 
 
-public class NewsDetailsActivity extends AppCompatActivity {
+public class
+NewsDetailsActivity extends AppCompatActivity {
     WebView webView;
     ProgressBar loader;
     String url = "";

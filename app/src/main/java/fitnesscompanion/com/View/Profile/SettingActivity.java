@@ -105,14 +105,14 @@ public class SettingActivity extends AppCompatActivity implements GoogleApiClien
             builder.setMessage(R.string.status_signOut)
                     .setPositiveButton(R.string.signOut, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
-                            Auth.GoogleSignInApi.signOut(googleApiClient).setResultCallback(
-                                    new ResultCallback<Status>() {
-                                        @Override
-                                        public void onResult(Status status) {
-
-                                        }
-                                    });
-                            PendingResult<Status> statusPendingResult = Fitness.ConfigApi.disableFit(googleApiClient);
+//                            Auth.GoogleSignInApi.signOut(googleApiClient).setResultCallback(
+//                                    new ResultCallback<Status>() {
+//                                        @Override
+//                                        public void onResult(Status status) {
+//
+//                                        }
+//                                    });
+//                            PendingResult<Status> statusPendingResult = Fitness.ConfigApi.disableFit(googleApiClient);
                             getActivity().finish();
                             PreferenceManager.getDefaultSharedPreferences(getActivity()).edit().clear().commit();
 

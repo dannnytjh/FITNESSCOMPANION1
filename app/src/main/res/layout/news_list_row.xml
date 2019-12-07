@@ -19,8 +19,7 @@
         <ImageView
             android:id="@+id/galleryImage"
             android:layout_width="80dp"
-            android:layout_height="80dp"
-            />
+            android:layout_height="80dp" />
     </LinearLayout>
 
     <LinearLayout
@@ -41,7 +40,7 @@
             android:maxLines="2"
             android:scrollHorizontally="true"
             android:ellipsize="end"
-            android:text="This is news title"/>
+            android:text="news title"/>
 
         <TextView
             android:id="@+id/sdetails"
@@ -53,7 +52,7 @@
             android:minLines="2"
             android:scrollHorizontally="true"
             android:ellipsize="end"
-            android:text="This is news description bla bla bla..."/>
+            android:text="news description bla bla bla..."/>
 
 
 

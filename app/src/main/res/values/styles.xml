@@ -6,7 +6,7 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name ="android:textColorHint">@color/white</item>
+        <item name="android:textColorHint">@color/white</item>
 
     </style>
 
@@ -25,6 +25,7 @@
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
     <style name="textFont">
         <item name="android:textSize">20dp</item>
     </style>
@@ -41,8 +42,8 @@
         <item name="android:layout_height">wrap_content</item>
 
     </style>
-    <style name="myCustomButton"
-        parent="Base.Widget.AppCompat.Button">
+
+    <style name="myCustomButton" parent="Base.Widget.AppCompat.Button">
         <item name="android:background">@drawable/roundcorner</item>
         <item name="android:textColor">@color/black</item>
     </style>

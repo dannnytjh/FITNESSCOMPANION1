@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:padding="4dip"
-    android:background="@drawable/background"
+    android:background="@color/colorDashboardDark"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     tools:context="fitnesscompanion.com.View.Profile.AlarmNotification">

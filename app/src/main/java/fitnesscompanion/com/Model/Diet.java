@@ -14,13 +14,13 @@ public class Diet {
     private int qty;
     private int type;
     private int calories;
-    private String image;
+    private byte[] image;
     private int foodNo;
 
     public Diet() {
     }
 
-    public Diet(int no, String name, int qty, int type, int calories, String image,int foodNo) {
+    public Diet(int no, String name, int qty, int type, int calories, byte[] image,int foodNo) {
         this.no = no;
         this.name = name;
         this.qty = qty;
@@ -78,11 +78,11 @@ public class Diet {
         this.calories = calories;
     }
 
-    public String getImage() {
+    public byte[] getImage() {
         return image;
     }
 
-    public void setImage(String image) {
+    public void setImage(byte[] image) {
         this.image = image;
     }
 
@@ -90,5 +90,6 @@ public class Diet {
         byte[] decodedString = Base64.decode(image, Base64.DEFAULT);
         Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
         return decodedByte;
+
     }
 }

@@ -159,7 +159,7 @@
     </array>
     <array name="photoArray">
         <item>Camera</item>
-        <item>Gallery</item>
+        <item>Choose from Album</item>
         <item>Cancel</item>
     </array>
     <array name="actionArray">
@@ -284,6 +284,10 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="fab_Upload">Upload Food Image</string>
+    <string name="title_activity_food_image_fragment">FoodImageFragment</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+    <string name="title_activity_food_image">FoodImage</string>
 
 
 </resources>

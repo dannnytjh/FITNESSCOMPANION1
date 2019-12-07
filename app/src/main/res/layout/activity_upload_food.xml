@@ -1,43 +1,214 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:padding="10dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".View.Food.UploadFoodActivity">
+    android:background="@color/colorDashboardDark"
+    tools:context=".View.Food.UploadFoodActivity"
+    android:orientation="vertical">
 
     <LinearLayout
-        android:orientation="vertical"
+        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+        android:clipToPadding="false"
+        android:orientation="horizontal"
+        android:paddingBottom="8dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="8dp">
 
         <ImageView
             android:id="@+id/imageToUpload"
-            android:layout_gravity="center_horizontal"
-            android:layout_width="250dp"
-            android:layout_height="200dp"
+            android:layout_width="120dp"
+            android:layout_height="110dp"
+            android:layout_centerVertical="true"
+            android:background="@color/colorDashboardDark"
+            android:layout_marginRight="10dp"
+            app:srcCompat="@drawable/ic_add_a_photo_black_24dp"
             android:visibility="gone"/>
 
-        <EditText
-            android:id="@+id/name"
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:visibility="gone"/>
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_toEndOf="@+id/imageToUpload"
+            android:layout_toRightOf="@+id/imageToUpload"
+            android:orientation="vertical">
 
-        <Button
-            android:id="@+id/bChooseImage"
-            android:text="Choose Image"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            <EditText
+                android:id="@+id/name"
+                android:layout_width="230dp"
+                android:layout_height="110dp"
+                android:background="@android:color/transparent"
+                android:fontFamily="sans-serif-medium"
+                android:hint="Food Name..."
+                android:textStyle="italic"
+                android:textSize="16sp" />
 
-        <Button
-            android:id="@+id/bUploadImage"
-            android:text="Upload Image"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+        </LinearLayout>
 
     </LinearLayout>
 
 
-</ScrollView>
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:orientation="horizontal"
+            android:paddingBottom="8dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingTop="8dp">
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="70dp"
+                android:layout_marginRight="8dp"
+                android:layout_weight="1"
+                android:background="@android:color/white"
+                android:id="@+id/bChooseImage"
+                android:elevation="2dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:padding="12dp">
+
+                <ImageView
+                    android:id="@+id/imgv_start_training"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/circle"
+                    android:src="@drawable/ic_dash_play" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toEndOf="@+id/imgv_start_training"
+                    android:layout_toRightOf="@+id/imgv_start_training"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="70dp"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="Choose Image "
+                        android:textSize="16sp" />
+
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="70dp"
+                android:layout_marginLeft="8dp"
+                android:layout_weight="1"
+                android:background="@android:color/white"
+                android:clickable="true"
+                android:elevation="2dp"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:padding="12dp"
+                android:id="@+id/bList">
+
+                <ImageView
+                    android:id="@+id/imgv_next_training"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/circle"
+                    android:backgroundTint="@color/colorDashboardNextWorkout"
+                    android:src="@drawable/ic_dash_next"
+                    android:padding="6dp"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toEndOf="@+id/imgv_next_training"
+                    android:layout_toRightOf="@+id/imgv_next_training"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="Image Archive"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tvDate"
+            android:textSize="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:text="Select Date"
+            android:drawableLeft="@drawable/ic_food"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/price"
+            android:textSize="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:hint="Price..."
+            android:textStyle="italic"
+            android:background="@android:color/transparent"
+            android:fontFamily="sans-serif-medium"
+            android:drawableLeft="@drawable/ic_food"/>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
+
+        <Button
+            android:layout_marginTop="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:id="@+id/bUploadImage"
+            android:text="Upload Image"
+            android:textColor="@color/colorWhite"
+            android:background="@color/colorAccent"
+            android:layout_alignParentRight="true"/>
+
+    </RelativeLayout>
+</LinearLayout>
