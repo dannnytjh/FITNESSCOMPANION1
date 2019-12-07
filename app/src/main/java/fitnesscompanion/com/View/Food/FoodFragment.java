@@ -94,6 +94,7 @@ public class FoodFragment extends Fragment {
     private FoodRequest foodRequest;
     private HashMap<String, ArrayList<Diet>> arrayListHashMap;
     private DietExpandableAdapter dietExpandableAdapter;
+
     //Date Control
     private OnSwipeTouchListener onSwipeTouchListener = new OnSwipeTouchListener(context) {
         @Override
@@ -129,6 +130,8 @@ public class FoodFragment extends Fragment {
         }
 
     };
+
+    //display date middle
     private View.OnLongClickListener onLongClickListener = new View.OnLongClickListener() {
         @Override
         public boolean onLongClick(View view) {
@@ -142,6 +145,8 @@ public class FoodFragment extends Fragment {
             return false;
         }
     };
+
+    // left right button date
     private View.OnClickListener onDateControl = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
@@ -162,6 +167,7 @@ public class FoodFragment extends Fragment {
 
         }
     };
+    // date picker
     private View.OnClickListener onSelectDate = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
@@ -169,14 +175,22 @@ public class FoodFragment extends Fragment {
                 @Override
                 public void onSuccess(Date date) {
                     defaultDate= date;
+                    today = format.format(defaultDate);
                     setDate();
                 }
             });
             datePicker.setSelectedDate(defaultDate);
             datePicker.setMaxDate(new Date());
             datePicker.show(getActivity().getFragmentManager(),"Date Picker");
+
         }
     };
+
+    @Override
+    public void onResume() {
+        super.onResume();
+    }
+
     //List View Control
     private ExpandableListView.OnChildClickListener onChildClickListener = new ExpandableListView.OnChildClickListener() {
         @Override
@@ -263,12 +277,15 @@ public class FoodFragment extends Fragment {
                     break;*/
                 case R.id.fabSearch:
                     getActivity().finish();
-                    startActivity(new Intent(getContext(), SearchFoodActivity.class));
+                    startActivity(new Intent(getContext(), FoodImage.class));
                     break;
+//                    getActivity().finish();
+//                    startActivity(new Intent(getContext(), SearchFoodActivity.class));
+//                    break;
 
                 case R.id.fabUpload:
                     getActivity().finish();
-                    startActivity(new Intent(getContext(), UploadFoodActivity.class));
+                    startActivity(new Intent(getContext(), UploadFoodActivity.class).putExtra("id",user.getId()));
                     break;
 
             }
@@ -368,6 +385,7 @@ public class FoodFragment extends Fragment {
         menu_food.setIconToggleAnimatorSet(set);
     }
 
+    //barcode scanner
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode==2) {
@@ -400,6 +418,7 @@ public class FoodFragment extends Fragment {
         }
     }
 
+    //get food data from server
     private void getDietData() {
         expandedListFood.invalidateViews();
         new DietRequest(context).getDiet(new DietRequest.VolleyCall() {
@@ -411,6 +430,7 @@ public class FoodFragment extends Fragment {
         },today);
     }
 
+    //display parent list, meal type
     private ArrayList<String> getHeader() {
         ArrayList<String> header = new ArrayList<String>();
         String [] headerArray =context.getResources().getStringArray(R.array.dietOption);
@@ -420,6 +440,7 @@ public class FoodFragment extends Fragment {
         return header;
     }
 
+    //put data into specific meal type
     private HashMap<String, ArrayList<Diet>> getData(ArrayList<Diet> dietList) {
         arrayListHashMap = new HashMap<String,ArrayList<Diet>>();
 
@@ -442,6 +463,8 @@ public class FoodFragment extends Fragment {
         //progressBarFood= new ProgressBarFood(context,progressBar,txtIntake,txtRemaining);
         return diets;
     }
+
+    //progress bar
 
     private void setProgressBar(ArrayList<Diet> dietList) {
 
@@ -481,5 +504,7 @@ public class FoodFragment extends Fragment {
 
         progressBar.getProgressDrawable().setColorFilter(color,android.graphics.PorterDuff.Mode.SRC_IN);
     }
+
+
 
 }
