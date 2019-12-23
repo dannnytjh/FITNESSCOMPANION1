@@ -11,6 +11,12 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.GlideBuilder;
+import com.bumptech.glide.annotation.GlideModule;
+import com.bumptech.glide.load.DecodeFormat;
+import com.bumptech.glide.module.AppGlideModule;
+import com.bumptech.glide.request.RequestOptions;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -76,8 +82,18 @@ public class FoodListAdapter extends BaseAdapter {
 
         byte[] foodImage = food.getImage();
         Bitmap bitmap= BitmapFactory.decodeByteArray(foodImage, 0, foodImage.length);
-        holder.imageView.setImageBitmap(bitmap);
+
+        Glide.with(holder.imageView.getContext()).asBitmap().load(foodImage).apply(new RequestOptions().override(300,300)).into(holder.imageView);
 
         return row;
+    }
+
+    @GlideModule
+    public final class MyAppGlideModule extends AppGlideModule {
+        @Override
+        public void applyOptions(Context context, GlideBuilder builder)
+        {
+            builder.setDefaultRequestOptions(new RequestOptions().format(DecodeFormat.PREFER_ARGB_8888));
+        }
     }
 }

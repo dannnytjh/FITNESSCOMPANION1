@@ -68,7 +68,7 @@ public class UploadFoodActivity extends AppCompatActivity implements View.OnClic
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_upload_food);
-        traineeId = this.getIntent().getIntExtra("id",0);
+        traineeId = this.getIntent().getIntExtra("traineeId",0);
         imageToUpload = (ImageView) findViewById(R.id.imageToUpload);
 
         bChooseImage = (RelativeLayout) findViewById(R.id.bChooseImage);
@@ -89,7 +89,6 @@ public class UploadFoodActivity extends AppCompatActivity implements View.OnClic
         sqLiteHelper = new SQLiteHelper(this, "FoodDB.sqlite", null, 1);
         sqLiteHelper.queryData("CREATE TABLE IF NOT EXISTS FOOD (Id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR (200), price VARCHAR (200), image BLOB)");
 
-
     }
 
     @Override
@@ -103,7 +102,9 @@ public class UploadFoodActivity extends AppCompatActivity implements View.OnClic
 
 
             case R.id.bUploadImage:
+                //upload to server
                 uploadImage();
+                //upload to sqlite local storage
                 uploadImageSQL();
                 break;
 
@@ -139,6 +140,31 @@ public class UploadFoodActivity extends AppCompatActivity implements View.OnClic
 
 
 
+    }
+
+    private void mealtype(){
+        AlertDialog.Builder build = new AlertDialog.Builder(this);
+        build.setTitle(getResources().getString(R.string.mealType)).setItems(getResources().
+                getStringArray(R.array.dietOption), new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                if (which == 0) {
+
+                } else if (which == 1) {
+
+
+                } else if (which == 2) {
+
+
+                } else if (which == 3) {
+                    
+
+                }
+            }
+
+        });
+        AlertDialog dialog = build.create();
+        dialog.show();
     }
 
     private void editImage() {
@@ -210,7 +236,7 @@ public class UploadFoodActivity extends AppCompatActivity implements View.OnClic
     public static byte[] imageViewToByte(ImageView image) {
         Bitmap bitmap = ((BitmapDrawable) image.getDrawable()).getBitmap();
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 50, stream);
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
         byte[] byteArray = stream.toByteArray();
         return byteArray;
     }
@@ -250,7 +276,7 @@ public class UploadFoodActivity extends AppCompatActivity implements View.OnClic
                 Map<String, String> params = new HashMap<>();
                 params.put("name", name.getText().toString().trim());
                 params.put("image",imageToString(bitmap));
-                params.put("id",String.valueOf(traineeId));
+                params.put("traineeId",String.valueOf(traineeId));
 
                 return params;
 

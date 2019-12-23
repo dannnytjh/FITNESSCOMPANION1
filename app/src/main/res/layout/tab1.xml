@@ -62,6 +62,7 @@
 
             <TextView
                 android:id="@+id/txtIntake"
+                android:text="1000 cal intake"
 
                 android:textStyle="bold"
                 android:textSize="8pt"
@@ -139,14 +140,6 @@
             android:layout_height="wrap_content"
             android:src="@drawable/ic_search"
             fab:fab_label="@string/fab_searchFood" />
-
-        <com.github.clans.fab.FloatingActionButton
-            android:id="@+id/fabUpload"
-            style="@style/MenuButtonsSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_search"
-            fab:fab_label="@string/fab_Upload" />
 
     </com.github.clans.fab.FloatingActionMenu>
 

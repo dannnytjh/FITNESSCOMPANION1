@@ -26,14 +26,29 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <!--
+             The API key for Google Maps-based APIs is defined as a string resource.
+             (See the file "res/values/google_maps_api.xml").
+             Note that the API key is linked to the encryption key used to sign the APK.
+             You need a different API key for each encryption key, including the release key that is used to
+             sign the APK for publishing.
+             You can define the keys for the debug and release targets in src/debug/ and src/release/.
+        -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
         <activity
             android:name=".View.Food.FoodImage"
             android:label="@string/title_activity_food_image"
             android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity
-            android:name=".FoodImageFragment"
-            android:label="@string/title_activity_food_image_fragment"
-            android:theme="@style/AppTheme.NoActionBar" />
+
+
         <activity android:name=".View.Food.Food" /> <!-- this service and receiver is for the ichoice device -->
         <service android:name="com.choicemmed.a30.BleService" />
         <service
@@ -183,7 +198,8 @@
         <activity
             android:name=".View.Home.NewsActivity"
             android:label="News Feed"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:parentActivityName=".View.Home.HomeFragment"/>
         <activity
             android:name=".View.Home.NewsDetailsActivity"
             android:label="News Details"
@@ -196,6 +212,19 @@
             android:name=".View.Food.FoodList"
             android:label="Food List"
             android:parentActivityName=".View.Food.UploadFoodActivity" />
+
+        <activity android:name=".View.Home.MapsActivity"
+        android:label="Running Map"
+        />
+
+        <activity android:name=".View.Home.JournalActivity"
+            android:label="Running History"
+            />
+
+
+
+
+
     </application>
 
 </manifest>

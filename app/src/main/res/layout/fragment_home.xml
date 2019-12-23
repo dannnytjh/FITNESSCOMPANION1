@@ -85,12 +85,12 @@
                 android:layout_marginRight="8dp"
                 android:layout_weight="1"
                 android:background="@android:color/white"
-                android:id="@+id/bMap"
                 android:elevation="2dp"
                 android:clickable="true"
                 android:focusable="true"
                 android:foreground="?android:attr/selectableItemBackground"
-                android:padding="12dp">
+                android:padding="12dp"
+                android:id="@+id/runningMap">
 
                 <ImageView
                     android:id="@+id/imgv_start_training"

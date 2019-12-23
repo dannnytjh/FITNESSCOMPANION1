@@ -26,10 +26,10 @@ import fitnesscompanion.com.Util.DashedCircularProgress;
 public class HomeFragment extends Fragment {
     @BindView(R.id.stepProgress) DashedCircularProgress stepProgress;
     @BindView(R.id.txtStep) TextView txtStep;
+    @BindView(R.id.runningMap) RelativeLayout runningMap;
     @BindView(R.id.bmistatistic) RelativeLayout bmibutton;
     @BindView(R.id.newsfeed) RelativeLayout newsbutton;
     @BindView(R.id.assignActivity) RelativeLayout assignbutton;
-    @BindView(R.id.bMap) RelativeLayout bMap;
 
     private Context context;
 
@@ -59,6 +59,14 @@ public class HomeFragment extends Fragment {
         /*stepProgress.setMax(new GoalDB(context).getCurrentStep());*/
         stepProgress.setValue(MenuActivity.step);
         txtStep.setText(String.valueOf(MenuActivity.step));
+
+        runningMap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context,MapsActivity.class);
+                startActivity(intent);
+            }
+        });
 
         bmibutton.setOnClickListener(new View.OnClickListener() {
             @Override

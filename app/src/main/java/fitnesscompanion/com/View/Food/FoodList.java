@@ -48,9 +48,10 @@ public class FoodList extends AppCompatActivity {
         list = new ArrayList<>();
         adapter = new FoodListAdapter(this, R.layout.food_list_items, list);
         gridView.setAdapter(adapter);
-
+         String date;
         //get data from SQLite
-        Cursor cursor = UploadFoodActivity.sqLiteHelper.getData("SELECT * FROM FOOD");
+        Cursor cursor = UploadFoodActivity.sqLiteHelper.getData1("SELECT * FROM FOOD WHERE name = 'relx'");
+
         list.clear();
         while (cursor.moveToNext()) {
             int id = cursor.getInt(0);

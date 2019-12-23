@@ -11,6 +11,7 @@ import androidx.annotation.Nullable;
 public class SQLiteHelper extends SQLiteOpenHelper {
     public SQLiteHelper(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
+
     }
 
     public void queryData(String sql)
@@ -56,9 +57,20 @@ public class SQLiteHelper extends SQLiteOpenHelper {
     public Cursor getData (String sql)
     {
         SQLiteDatabase database = getReadableDatabase();
-        return database.rawQuery(sql, null);
+        String[] selection = {"name","price","Id","image"};
+//        return database.query("FOOD",selection,"name =" + id,null,null,null,null);
+        return database.rawQuery(sql,null);
+
     }
 
+    public Cursor getData1 (String sql)
+    {
+        SQLiteDatabase database = getReadableDatabase();
+        String[] selection = {"name","price","id","image"};
+//        return database.query("FOOD",selection,"name = bbb",null,null,null,null);
+        return database.rawQuery(sql,null);
+
+    }
     @Override
     public void onCreate(SQLiteDatabase db) {
 

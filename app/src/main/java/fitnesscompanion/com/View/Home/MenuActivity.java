@@ -35,7 +35,7 @@ import fitnesscompanion.com.Database.HealthProfileDB;
 import fitnesscompanion.com.R;
 import fitnesscompanion.com.Util.BottomNavigationViewHelper;
 import fitnesscompanion.com.View.Activity.ActivityFragment;
-import fitnesscompanion.com.View.Food.FoodFragment;
+
 import fitnesscompanion.com.View.Food.FoodImage;
 import fitnesscompanion.com.View.Profile.ProfileFragment;
 

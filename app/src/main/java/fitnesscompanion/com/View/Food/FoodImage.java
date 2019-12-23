@@ -24,13 +24,13 @@ import fitnesscompanion.com.View.Food.ui.main.SectionsPagerAdapter;
 
 public class FoodImage extends Fragment {
 
+    @BindView(R.id.view_pager) ViewPager viewPager;
+    @BindView(R.id.tabs) TabLayout tabs;
+
     private Context context;
     public FoodImage(Context context) {
         this.context = context;
     }
-@BindView(R.id.view_pager) ViewPager viewPager;
-    @BindView(R.id.tabs) TabLayout tabs;
-    @BindView(R.id.fab) FloatingActionButton fab;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -41,13 +41,7 @@ public class FoodImage extends Fragment {
         viewPager.setAdapter(sectionsPagerAdapter);
         tabs.setupWithViewPager(viewPager);
 
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+
         return rootView;
     }
 }

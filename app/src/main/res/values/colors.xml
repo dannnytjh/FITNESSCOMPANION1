@@ -56,4 +56,16 @@
     <color name="colorTabUnselected">#9FFFFFFF</color>
 
     <color name="colorNewBest">#D32F2F</color>
+
+    <color name="Violet">#aa00fc</color>
+    <color name="Black">#000000</color>
+    <color name="White">#ffffff</color>
+    <color name="BrightGreen">#52fc00</color>
+    <color name="Gold">#ffc200</color>
+    <color name="Blue">#003dff</color>
+    <color name="LightGray">#dcdcdc</color>
+    <color name="Red">#ff4000</color>
+    <color name="YellowOrange">#ffc927</color>
+    <color name="SlateGray">#56636f</color>
+
 </resources>
