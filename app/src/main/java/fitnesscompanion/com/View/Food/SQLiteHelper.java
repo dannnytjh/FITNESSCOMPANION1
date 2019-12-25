@@ -20,17 +20,18 @@ public class SQLiteHelper extends SQLiteOpenHelper {
         database.execSQL(sql);
     }
 
-    public void insertData (String name, String price, byte[] image)
+    public void insertData (String name, String mealType, String date, byte[] image)
     {
         SQLiteDatabase database = getWritableDatabase();
-        String sql = "INSERT INTO FOOD VALUES (NULL, ?, ?, ?)";
+        String sql = "INSERT INTO FOOD1 VALUES (NULL, ?, ?, ?, ?)";
 
         SQLiteStatement statement = database.compileStatement(sql);
         statement.clearBindings();
 
         statement.bindString(1, name);
-        statement.bindString(2, price);
-        statement.bindBlob(3, image);
+        statement.bindString(2, mealType);
+        statement.bindString(3, date);
+        statement.bindBlob(4, image);
 
         statement.executeInsert();
     }
@@ -57,7 +58,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
     public Cursor getData (String sql)
     {
         SQLiteDatabase database = getReadableDatabase();
-        String[] selection = {"name","price","Id","image"};
+        String[] selection = {"name","mealType","Id","image", "date"};
 //        return database.query("FOOD",selection,"name =" + id,null,null,null,null);
         return database.rawQuery(sql,null);
 
@@ -66,11 +67,13 @@ public class SQLiteHelper extends SQLiteOpenHelper {
     public Cursor getData1 (String sql)
     {
         SQLiteDatabase database = getReadableDatabase();
-        String[] selection = {"name","price","id","image"};
+        String[] selection = {"name","mealType","Id","image", "date"};
 //        return database.query("FOOD",selection,"name = bbb",null,null,null,null);
         return database.rawQuery(sql,null);
 
     }
+
+
     @Override
     public void onCreate(SQLiteDatabase db) {
 

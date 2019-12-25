@@ -166,7 +166,7 @@
         android:paddingTop="8dp">
 
         <RelativeLayout
-            android:id="@+id/bmistatistic"
+            android:id="@+id/bMeal"
             android:layout_width="0dp"
             android:layout_height="70dp"
             android:layout_marginRight="8dp"
@@ -201,19 +201,19 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/mealType"
+                    android:textSize="16sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-medium"
-                    android:text="Select Date"
-                    android:textSize="16sp" />
-
+                    android:text="Pick a Meal"
+                    android:fontFamily="sans-serif-medium"/>
 
             </LinearLayout>
 
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/assignActivity"
+            android:id="@+id/bDate"
             android:layout_width="0dp"
             android:layout_height="70dp"
             android:layout_marginLeft="8dp"
@@ -248,12 +248,12 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/tvDate"
+                    android:textSize="16sp"
+                    android:fontFamily="sans-serif-medium"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-medium"
-                    android:text="Pick A Meal"
-                    android:textSize="16sp" />
-
+                    android:text="Select Date" />
 
             </LinearLayout>
 
@@ -261,44 +261,6 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_marginTop="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:id="@+id/tvDate"
-            android:textSize="20dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:text="Select Date"
-            android:drawableLeft="@drawable/ic_food"/>
-
-    </LinearLayout>
-
-
-
-    <LinearLayout
-        android:layout_marginTop="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <EditText
-            android:id="@+id/price"
-            android:textSize="20dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:hint="Price..."
-            android:textStyle="italic"
-            android:background="@android:color/transparent"
-            android:fontFamily="sans-serif-medium"
-            android:drawableLeft="@drawable/ic_food"/>
-
-    </LinearLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"

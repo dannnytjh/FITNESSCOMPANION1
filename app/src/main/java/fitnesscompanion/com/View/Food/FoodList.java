@@ -18,6 +18,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -30,36 +31,66 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import fitnesscompanion.com.R;
+import fitnesscompanion.com.View.Food.ui.main.tab2;
 
 public class FoodList extends AppCompatActivity {
 
-    GridView gridView;
+    ListView listView;
+
     ArrayList<Food> list;
     FoodListAdapter adapter = null;
     private Bitmap bitmap;
+    int from;
+    Cursor cursor;
     ImageView imageViewFood;
+    private String mealDate;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food_list);
 
-        gridView = (GridView) findViewById(R.id.gridView);
+        listView = (ListView) findViewById(R.id.listView);
         list = new ArrayList<>();
         adapter = new FoodListAdapter(this, R.layout.food_list_items, list);
-        gridView.setAdapter(adapter);
-         String date;
+        listView.setAdapter(adapter);
+
+        //get custom query sqlite
+        from = this.getIntent().getIntExtra("from",0);
+        mealDate = this.getIntent().getStringExtra("mealDate");
+
         //get data from SQLite
-        Cursor cursor = UploadFoodActivity.sqLiteHelper.getData1("SELECT * FROM FOOD WHERE name = 'relx'");
+        if(from == 0) {
+             cursor = UploadFoodActivity.sqLiteHelper.getData1("SELECT * FROM FOOD1");
+        }
+        else if (from == 1)
+        {
+            cursor = tab2.sqLiteHelper.getData1("SELECT * FROM FOOD1 WHERE mealType = 'Breakfast'"+" AND date = '"+ mealDate + "'");
+        }
+        else if (from == 2)
+        {
+            cursor = tab2.sqLiteHelper.getData1("SELECT * FROM FOOD1 WHERE mealType = 'Lunch'"+" AND date = '"+ mealDate + "'");
+        }
+        else if (from == 3)
+        {
+            cursor = tab2.sqLiteHelper.getData1("SELECT * FROM FOOD1 WHERE mealType = 'Dinner'"+" AND date = '"+ mealDate + "'");
+        }
+        else if (from == 4)
+        {
+            cursor = tab2.sqLiteHelper.getData1("SELECT * FROM FOOD1 WHERE mealType = 'Others'"+" AND date = '"+ mealDate + "'");
+        }
+
 
         list.clear();
         while (cursor.moveToNext()) {
+
             int id = cursor.getInt(0);
             String name = cursor.getString(1);
-            String price = cursor.getString(2);
-            byte[] image = cursor.getBlob(3);
+            String mealType = cursor.getString(2);
+            String date = cursor.getString(3);
+            byte[] image = cursor.getBlob(4);
 
-            list.add(new Food(id, name, price, image));
+            list.add(new Food(id, name, mealType, date, image));
         }
         adapter.notifyDataSetChanged();
     }

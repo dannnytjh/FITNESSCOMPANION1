@@ -43,7 +43,6 @@
 
             <ImageButton
                 android:id="@+id/btnGo"
-                android:visibility="gone"
                 android:src="@drawable/ic_go"
                 android:tint="@color/colorWhite"
                 android:background="@null"

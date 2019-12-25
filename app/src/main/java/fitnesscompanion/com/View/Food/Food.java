@@ -10,14 +10,15 @@ public class Food {
 
     private int id;
     private String name;
-    private String price;
+    private String mealType;
+    private String date;
     private byte [] image;
 
-    public Food(int id, String name, String price, byte[] image) {
+    public Food(int id, String name, String mealType, String date, byte[] image) {
         this.id = id;
         this.name = name;
-        this.price = price;
-
+        this.mealType = mealType;
+        this.date = date;
         this.image = image;
 
     }
@@ -38,12 +39,20 @@ public class Food {
         this.name = name;
     }
 
-    public String getPrice() {
-        return price;
+    public String getmealType() {
+        return mealType;
     }
 
-    public void setPrice(String price) {
-        this.price = price;
+    public void setmealType(String mealType) {
+        this.mealType = mealType;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 
     public byte[] getImage() {

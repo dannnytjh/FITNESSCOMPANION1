@@ -53,7 +53,7 @@ public class FoodListAdapter extends BaseAdapter {
     private class ViewHolder
     {
         ImageView imageView;
-        TextView txtname, txtprice;
+        TextView txtname, txtmeal, txtdate;
     }
     @Override
     public View getView(int position, View view, ViewGroup viewGroup) {
@@ -67,8 +67,10 @@ public class FoodListAdapter extends BaseAdapter {
             row = inflater.inflate(layout, null);
 
             holder.txtname = (TextView) row.findViewById(R.id.tvFoodName);
-            holder.txtprice = (TextView) row.findViewById(R.id.tvFoodPrice);
+            holder.txtmeal = (TextView) row.findViewById(R.id.tvFoodType);
+            holder.txtdate = (TextView) row.findViewById(R.id.tvFoodDate);
             holder.imageView = (ImageView) row.findViewById(R.id.imgFood);
+
             row.setTag(holder);
         }
         else{
@@ -78,12 +80,14 @@ public class FoodListAdapter extends BaseAdapter {
         Food food = foodList.get(position);
 
         holder.txtname.setText(food.getName());
-        holder.txtprice.setText(food.getPrice());
+        holder.txtmeal.setText(food.getmealType());
+        holder.txtdate.setText(food.getDate());
 
         byte[] foodImage = food.getImage();
         Bitmap bitmap= BitmapFactory.decodeByteArray(foodImage, 0, foodImage.length);
+        holder.imageView.setImageBitmap(bitmap);
 
-        Glide.with(holder.imageView.getContext()).asBitmap().load(foodImage).apply(new RequestOptions().override(300,300)).into(holder.imageView);
+//        Glide.with(holder.imageView.getContext()).asBitmap().load(foodImage).apply(new RequestOptions().override(300,300)).into(holder.imageView);
 
         return row;
     }

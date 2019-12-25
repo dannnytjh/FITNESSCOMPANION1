@@ -4,12 +4,14 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.location.Location;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.SystemClock;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ViewSwitcher;
@@ -169,7 +171,7 @@ public class MapsActivity extends FragmentActivity
 
             float p = getAveragePace(accumDistMeters, timeInMilliseconds);
 
-            String avgPace = String.format(Locale.getDefault(),"%s min/km",
+            String avgPace = String.format(Locale.getDefault(),"%.4s min/km",
                     convertDecimalToMins(p));
             avgPaceTextView.setText(avgPace);
 
@@ -352,19 +354,16 @@ public class MapsActivity extends FragmentActivity
     }
 
 
-    /**
-     * Prompts the user for permission to use the device location.
-     */
+
+    //Prompt user for permission to use the device location
     private void getLocationPermission() {
-        /*
-         * Request location permission, so that we can get the location of the
-         * device. The result of the permission request is handled by a callback,
-         * onRequestPermissionsResult.
-         */
+
+         //Request location permission, so that we can get the location of the device
         if (ContextCompat.checkSelfPermission(this.getApplicationContext(),
                 android.Manifest.permission.ACCESS_FINE_LOCATION)
                 == PackageManager.PERMISSION_GRANTED) {
             mLocationPermissionGranted = true;
+
         } else {
             ActivityCompat.requestPermissions(this,
                     new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION},
@@ -372,10 +371,6 @@ public class MapsActivity extends FragmentActivity
         }
     }
 
-
-    /**
-     * Handles the result of the request for location permissions.
-     */
     @Override
     public void onRequestPermissionsResult(int requestCode,
                                            @NonNull String permissions[],

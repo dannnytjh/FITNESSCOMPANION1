@@ -7,9 +7,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Locale;
 
 import fitnesscompanion.com.R;
@@ -56,7 +54,7 @@ public class ItemAdapter extends BaseAdapter {
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
 
-        View v = inflater.inflate(R.layout.listview_detail, null);
+        View v = inflater.inflate(R.layout.run_listview_detail, null);
         TextView distDetail = v.findViewById(R.id.distDetailTV);
         TextView timeDetail = v.findViewById(R.id.timeDetailTV);
         TextView avgPaceDetail = v.findViewById(R.id.avgPaceDetailTV);

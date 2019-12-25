@@ -74,6 +74,8 @@ dependencies {
     implementation 'com.google.android.gms:play-services-location:16.0.0'  //Google Location and Activity  Recognition
 
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
-    
+
+    implementation 'com.github.tbruyelle:rxpermissions:0.10.1'
+    implementation 'com.jakewharton.rxbinding2:rxbinding:2.1.1'
 
 }
